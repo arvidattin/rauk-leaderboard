@@ -13,7 +13,7 @@ const sportImages = {
     'Multi-sport': multisportImg,
     'Swimming': swimmingImg,
     'Motor': motorImg,
-    'Skiing': crossCountryImg,
+    'Cross-country': crossCountryImg,
     'Other': otherImg
 };
 const sportColors = {
@@ -21,7 +21,7 @@ const sportColors = {
     'Cycling': 'text-emerald-400',
     'Swimming': 'text-cyan-400',
     'Motor': 'text-orange-500',
-    'Skiing': 'text-white',
+    'Cross-country': 'text-white',
     'Multi-sport': 'text-amber-700',
     'Other': 'text-slate-400'
 };

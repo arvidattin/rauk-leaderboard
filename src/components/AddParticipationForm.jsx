@@ -55,7 +55,7 @@ const AddParticipationForm = ({ onAdded, initialData }) => {
         }
     };
 
-    const sports = ['Running', 'Cycling', 'Multi-sport', 'Swimming', 'Motor', 'Skiing', 'Other'];
+    const sports = ['Running', 'Cycling', 'Multi-sport', 'Swimming', 'Motor', 'Cross-country', 'Other'];
 
     return (
         <div id="add-participation-form" className="glass-card rounded-xl p-6 border border-white/10" >
