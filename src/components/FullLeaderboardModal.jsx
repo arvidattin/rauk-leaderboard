@@ -56,7 +56,7 @@ const FullLeaderboardModal = ({ race, onClose, onAddParticipation }) => {
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
 
                     <div className="relative z-10 flex flex-col gap-1">
-                        <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${categoryColor}`}>
+                        <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${sportColors}`}>
                             <span>{race.category}</span>
                             <span className="w-1 h-1 rounded-full bg-white/30"></span>
                             <span>{race.year}</span>
