@@ -2,117 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Racing Leaderboard Design System - All colors MUST be HSL.
-Inspired by Olympic podiums, racing tracks, and athletic competitions.
-*/
+:root {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+}
 
-@layer base {
-  :root {
-    /* Dark racing theme */
-    --background: 220 13% 9%;
-    --foreground: 210 40% 98%;
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
 
-    /* Dark racing card backgrounds */
-    --card: 220 13% 11%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 13% 11%;
-    --popover-foreground: 210 40% 98%;
-
-    /* Bright racing blue primary */
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Dark track secondary */
-    --secondary: 220 13% 14%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 13% 14%;
-    --muted-foreground: 215 20% 65%;
-
-    /* Victory gold accent */
-    --accent: 45 93% 58%;
-    --accent-foreground: 26 83% 14%;
-
-    /* Medal colors - enhanced for dark mode */
-    --gold: 45 93% 58%;
-    --gold-foreground: 26 83% 14%;
-    --silver: 0 0% 75%;
-    --silver-foreground: 0 0% 9%;
-    --bronze: 25 76% 51%;
-    --bronze-foreground: 0 0% 100%;
-
-    /* Dark racing gradients */
-    --gradient-victory: linear-gradient(135deg, hsl(45 93% 58%), hsl(35 91% 65%));
-    --gradient-track: linear-gradient(180deg, hsl(220 13% 9%), hsl(220 13% 14%));
-    --gradient-podium: linear-gradient(135deg, hsl(217 91% 60%), hsl(230 84% 65%));
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    /* Dark borders and inputs */
-    --border: 220 13% 18%;
-    --input: 220 13% 18%;
-    --ring: 217 91% 60%;
-
-    --radius: 0.5rem;
-
-    /* Dark sidebar */
-    --sidebar-background: 220 13% 9%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 13% 14%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 13% 18%;
-    --sidebar-ring: 217 91% 60%;
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  100% {
+    transform: translate(0px, 0px) scale(1);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.animate-blob {
+  animation: blob 7s infinite;
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(28, 28, 39, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
