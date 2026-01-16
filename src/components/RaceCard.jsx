@@ -22,7 +22,7 @@ const sportColors = {
     'Cycling': 'text-emerald-400',
     'Swimming': 'text-cyan-400',
     'Motor': 'text-orange-500',
-    'Cross-country skiing': 'text-white',
+    'Skiing': 'text-white',
     'Multi-sport': 'text-amber-700',
     'Other': 'text-slate-400'
 };
@@ -59,13 +59,13 @@ const RaceCard = ({ race, onShowAll }) => {
                         </div>
                     </div>
                     <div className="bg-black/20 rounded p-3 border border-white/5 flex flex-col gap-2">
-                        {entrants && entrants.length > 0 ? entrants.slice(0, 3).map((entry, i) => (
+                        {participations && participations.length > 0 ? participations.slice(0, 3).map((entry, i) => (
                             <div key={i} className="flex items-center justify-between text-xs">
                                 <div className="flex items-center gap-2">
                                     <span className={`${i === 0 ? 'text-yellow-400' : i === 1 ? 'text-gray-400' : 'text-amber-600'} font-bold w-3 text-center`}>{i + 1}</span>
                                     <span className="text-gray-200">{entry.name}</span>
                                 </div>
-                                <span className="text-white font-mono">{entry.time}</span>
+                                <span className="text-white font-mono">{entry.finish_time}</span>
                             </div>
                         )) : (
                             <div className="text-gray-500 text-xs italic">No entrants yet</div>

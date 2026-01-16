@@ -43,7 +43,7 @@ const Leaderboard = ({ refreshTrigger, onAddParticipation }) => {
                     category: p.sport,
                     // date: removed, was year
                     location: 'See Details', // Placeholder
-                    entrants: []
+                    participations: []
                 };
             }
 
@@ -51,17 +51,17 @@ const Leaderboard = ({ refreshTrigger, onAddParticipation }) => {
             // Postgres interval might need parsing if it comes back as object. 
             // Supabase-js usually returns string for interval? Let's assume string "HH:MM:SS" or similar.
 
-            groups[key].entrants.push({
+            groups[key].participations.push({
                 name: p.profiles?.username || 'Anonymous',
                 year: p.year,
-                time: p.finish_time,
+                finish_time: p.finish_time,
                 originalTime: p.finish_time // For sorting
             });
         });
 
-        // Convert object to array and sort entrants by time
+        // Convert object to array and sort participations by time
         const racesArray = Object.values(groups).map(race => {
-            race.entrants.sort((a, b) => a.originalTime.localeCompare(b.originalTime));
+            race.participations.sort((a, b) => a.originalTime.localeCompare(b.originalTime));
             return race;
         });
 
@@ -101,7 +101,7 @@ const Leaderboard = ({ refreshTrigger, onAddParticipation }) => {
                         groupedRaces.map((race, i) => (
                             <RaceCard
                                 key={i}
-                                {...race}
+                                race={race}
                                 onShowAll={() => setSelectedRace(race)}
                             />
                         ))

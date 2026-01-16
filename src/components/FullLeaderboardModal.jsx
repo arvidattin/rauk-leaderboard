@@ -13,7 +13,7 @@ const sportImages = {
     'Multi-sport': multisportImg,
     'Swimming': swimmingImg,
     'Motor': motorImg,
-    'Cross-country': crossCountryImg,
+    'Skiing': crossCountryImg,
     'Other': otherImg
 };
 const sportColors = {
@@ -21,7 +21,8 @@ const sportColors = {
     'Cycling': 'text-emerald-400',
     'Swimming': 'text-cyan-400',
     'Motor': 'text-orange-500',
-    'Cross-country': 'text-white',
+    'Motor': 'text-orange-500',
+    'Skiing': 'text-white',
     'Multi-sport': 'text-amber-700',
     'Other': 'text-slate-400'
 };
@@ -103,8 +104,8 @@ const FullLeaderboardModal = ({ race, onClose, onAddParticipation }) => {
 
                 {/* List */}
                 <div className="flex-1 overflow-y-auto overflow-x-hidden p-0 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                    {race.entrants.length > 0 ? (
-                        race.entrants.map((entry, i) => (
+                    {race.participations.length > 0 ? (
+                        race.participations.map((entry, i) => (
                             <div
                                 key={i}
                                 className={`grid grid-cols-12 gap-4 px-6 py-4 border-b border-white/5 items-center transition-colors
@@ -131,7 +132,7 @@ const FullLeaderboardModal = ({ race, onClose, onAddParticipation }) => {
                                     </span>
                                 </div>
                                 <div className="col-span-4 sm:col-span-3 text-right font-mono text-white/90">
-                                    {entry.time}
+                                    {entry.finish_time}
                                 </div>
                             </div>
                         ))
@@ -144,7 +145,7 @@ const FullLeaderboardModal = ({ race, onClose, onAddParticipation }) => {
 
                 {/* Footer Stats */}
                 <div className="p-4 bg-white/5 border-t border-white/10 text-xs text-white/40 flex justify-between items-center">
-                    <span>Total Participants: {race.entrants.length}</span>
+                    <span>Total Participants: {race.participations.length}</span>
                     <span>Sorted by Finish Time</span>
                 </div>
             </div>
