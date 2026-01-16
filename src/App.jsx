@@ -80,7 +80,7 @@ function App() {
                                 <img
                                     src={logo}
                                     alt="RaukRacing-cropped"
-                                    className="h-12 w-auto  drop-shadow-[0_0_8px_rgba(0,0,0,0.2)] filter"
+                                    className="h-8 w-auto  drop-shadow-[0_0_8px_rgba(0,0,0,0.2)] filter"
                                 />
                                 <span className="text-white text-xl font-bold tracking-tight">Rauk Racing</span>
                             </div>
