@@ -3,23 +3,26 @@ import { addParticipation } from '../lib/api';
 
 const AddParticipationForm = ({ onAdded, initialData }) => {
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({
-        sport: 'Running',
-        year: new Date().getFullYear(),
-        race_name: '',
-        finish_time: ''
+    const [formData, setFormData] = useState(() => {
+        if (initialData) {
+            return {
+                sport: initialData.sport || 'Running',
+                year: initialData.year || new Date().getFullYear(),
+                race_name: initialData.race_name || '',
+                finish_time: '' // Don't pre-fill finish time
+            };
+        }
+        return {
+            sport: 'Running',
+            year: new Date().getFullYear(),
+            race_name: '',
+            finish_time: ''
+        };
     });
     const [message, setMessage] = useState(null);
 
     React.useEffect(() => {
         if (initialData) {
-            setFormData(prev => ({
-                ...prev,
-                sport: initialData.sport || 'Running',
-                year: initialData.year || new Date().getFullYear(),
-                race_name: initialData.race_name || '',
-                // Don't pre-fill finish time
-            }));
             // Scroll to form only if initialData was passed (user came from leaderboard)
             const formElement = document.getElementById('add-participation-form');
             if (formElement) formElement.scrollIntoView({ behavior: 'smooth' });
@@ -55,7 +58,7 @@ const AddParticipationForm = ({ onAdded, initialData }) => {
     const sports = ['Running', 'Cycling', 'Multi-sport', 'Swimming', 'Motor', 'Skiing', 'Other'];
 
     return (
-        <div id="add-participation-form" className="glass-card rounded-xl p-6 border border-white/10">
+        <div id="add-participation-form" className="glass-card rounded-xl p-6 border border-white/10" >
             <h3 className="text-white text-xl font-bold mb-4 flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary">add_circle</span>
                 {initialData ? 'Log Time for Race' : 'Add New Race'}
@@ -128,7 +131,7 @@ const AddParticipationForm = ({ onAdded, initialData }) => {
                     {loading ? 'Adding...' : 'Submit Time'}
                 </button>
             </form>
-        </div>
+        </div >
     );
 };
 

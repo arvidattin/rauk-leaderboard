@@ -27,9 +27,10 @@ const sportColors = {
     'Other': 'text-slate-400'
 };
 
-const RaceCard = ({ category, title, location, date, entrants, colorClass = "text-primary", onShowAll }) => {
+const RaceCard = ({ race, onShowAll }) => {
+    const { title, location, category, date, participations } = race;
     const bgImage = sportImages[category] || otherImg;
-    const computedColorClass = sportColors[category] || colorClass;
+    const computedColorClass = sportColors[category] || "text-primary";
 
     return (
         <div className="group flex flex-col rounded-xl glass-card overflow-hidden hover:border-primary/50 shadow-lg transition-all duration-300 hover:translate-y-[-4px] snap-center">
@@ -50,7 +51,6 @@ const RaceCard = ({ category, title, location, date, entrants, colorClass = "tex
                     <div className="flex flex-col gap-1">
                         <div className="flex justify-between items-start">
                             <p className={`${computedColorClass} text-xs font-bold uppercase tracking-wider`}>{category}</p>
-                            <span className="material-symbols-outlined text-[#9d9db9] text-[20px] cursor-pointer hover:text-white transition-colors">bookmark</span>
                         </div>
                         <h3 className="text-white text-lg font-normal leading-tight group-hover:font-bold transition-colors">{title}</h3>
                         <div className="flex items-center gap-1 text-[#9d9db9] text-sm mt-1">

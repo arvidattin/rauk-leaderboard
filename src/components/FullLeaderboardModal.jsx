@@ -29,8 +29,9 @@ const sportColors = {
 const FullLeaderboardModal = ({ race, onClose, onAddParticipation }) => {
     if (!race) return null;
 
-    const bgImage = sportImages[race.category] || otherImg;
-    const categoryColor = sportColors[race.category] || 'text-primary';
+    const { title, category, year, participations } = race;
+    const bgImage = sportImages[category] || otherImg;
+    const computedColorClass = sportColors[category] || "text-primary";
 
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
