@@ -117,7 +117,6 @@ const Profile = ({ session, onLogout }) => {
                 </div>
             </div>
         </div>
-        </div >
     );
 };
 
