@@ -96,7 +96,7 @@ function App() {
                                                 setShowAddForm(!showAddForm);
                                                 if (!showAddForm) setInitialFormData(null); // Reset if opening fresh
                                             }}
-                                            className=" cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary hover:bg-blue-600 text-white text-sm font-bold transition-all shadow-lg active:scale-95 z-20"
+                                            className="hidden sm:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary hover:bg-blue-600 text-white text-sm font-bold transition-all shadow-lg active:scale-95 z-20"
                                         >
                                             {showAddForm ? 'Cancel' : 'Add Race'}
                                         </button>
