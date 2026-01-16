@@ -22,7 +22,7 @@ const sportColors = {
     'Cycling': 'text-emerald-400',
     'Swimming': 'text-cyan-400',
     'Motor': 'text-orange-500',
-    'Cross-country skiing': 'text-white',
+    'Skiing': 'text-white',
     'Multi-sport': 'text-amber-700',
     'Other': 'text-slate-400'
 };
