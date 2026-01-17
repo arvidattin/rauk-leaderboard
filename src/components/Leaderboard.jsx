@@ -72,7 +72,7 @@ const Leaderboard = ({ refreshTrigger, onAddParticipation }) => {
 
     }, [participations, filterSport]);
 
-    const sports = ['All', 'Running', 'Cycling', 'Multi-sport', 'Swimming', 'Motor', 'Cross-country', 'Other'];
+    const sports = ['All', 'Running', 'Cycling', 'Multi-sport', 'Swimming', 'Motor', 'Skiing', 'Other'];
 
     if (loading && participations.length === 0) {
         return <div className="text-white/60 text-center py-10">Loading leaderboard...</div>;

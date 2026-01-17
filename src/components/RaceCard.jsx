@@ -34,20 +34,23 @@ const RaceCard = ({ race, onShowAll }) => {
 
     return (
         <div className="group flex flex-col rounded-xl glass-card overflow-hidden hover:border-primary/50 shadow-lg transition-all duration-300 hover:translate-y-[-4px] snap-center">
-            <div className="flex flex-col sm:flex-row h-full">
-                <div className="w-full sm:w-40 h-48 sm:h-auto shrink-0 relative flex items-center justify-center overflow-hidden bg-slate-900">
+            <div className="flex flex-row h-full">
+                <div className="w-28 sm:w-40 shrink-0 relative flex items-center justify-center overflow-hidden bg-slate-900">
                     <img
                         src={bgImage}
                         alt={category}
                         className="absolute inset-0 w-full h-full object-cover duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-slate-900/50"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-900/50"></div>
 
-                    <div className="absolute top-2 right-2 glass text-white text-[10px] font-bold px-2 py-1 rounded z-10">
+                    <div className="absolute top-2 right-2 glass text-white text-[10px] font-bold px-2 py-1 rounded z-10 hidden sm:block">
+                        {date}
+                    </div>
+                    <div className="absolute bottom-2 left-2 glass text-white text-[10px] font-bold px-2 py-1 rounded z-10 sm:hidden">
                         {date}
                     </div>
                 </div>
-                <div className="flex flex-col flex-1 p-5 gap-3 justify-between relative">
+                <div className="flex flex-col flex-1 p-3 sm:p-5 gap-3 justify-between relative">
                     <div className="flex flex-col gap-1">
                         <div className="flex justify-between items-start">
                             <p className={`${computedColorClass} text-xs font-bold uppercase tracking-wider`}>{category}</p>
