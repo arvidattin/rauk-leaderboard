@@ -5,11 +5,16 @@ import Leaderboard from './components/Leaderboard';
 import AddParticipationForm from './components/AddParticipationForm';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import UpdatePassword from './components/UpdatePassword';
 import logo from './assets/RaukRacing-cropped.svg';
 
 function App() {
     const [session, setSession] = useState(null);
-    const [view, setView] = useState('home'); // 'home', 'login', 'profile'
+    // Check URL path for initial view
+    const [view, setView] = useState(() => {
+        if (window.location.pathname === '/update-password') return 'update-password';
+        return 'home';
+    });
     const [showAddForm, setShowAddForm] = useState(false);
     const [refreshLeaderboard, setRefreshLeaderboard] = useState(0);
     const [initialFormData, setInitialFormData] = useState(null);
@@ -25,8 +30,22 @@ function App() {
             setSession(session);
 
             // Handle view changes based on events
-            if (event === 'SIGNED_IN') {
-                setView('home');
+            if (event === 'PASSWORD_RECOVERY') {
+                setView('update-password');
+            } else if (event === 'SIGNED_IN') {
+                // Check if we are on the update-password route
+                if (window.location.pathname === '/update-password') {
+                    setView('update-password');
+                } else {
+                    // Only redirect to home if we aren't already there or on profile
+                    // Uses functional update or just logic to avoid dependency issues if possible
+                    // But here we can't access current 'view' easily without dep.
+                    // Instead, let's just default to home if not specific other views
+                    setView((prevView) => {
+                        if (prevView === 'update-password') return 'update-password';
+                        return 'home';
+                    });
+                }
             } else if (event === 'SIGNED_OUT') {
                 setView('home');
                 setShowAddForm(false);
@@ -34,7 +53,7 @@ function App() {
         });
 
         return () => subscription.unsubscribe();
-    }, []); // Empty dependency array to prevent loops logic
+    }, []); // Empty dependency array as we use functional updates or window check
 
     const handleLogout = async () => {
         const { error } = await supabase.auth.signOut();
@@ -72,6 +91,8 @@ function App() {
 
             {view === 'login' ? (
                 <Login onLoginSuccess={() => setView('home')} onCancel={() => setView('home')} />
+            ) : view === 'update-password' ? (
+                <UpdatePassword onUpdateSuccess={() => setView('home')} />
             ) : (
                 <>
                     <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-white/5 glass px-6 md:px-10 py-3">
