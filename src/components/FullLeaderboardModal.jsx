@@ -80,7 +80,7 @@ const FullLeaderboardModal = ({ race, onClose, onAddParticipation }) => {
                                     sport: race.category
                                 });
                             }}
-                            className="hidden sm:flex items-center gap-1 bg-primary hover:bg-blue-600 text-white text-xs font-bold py-2 px-3 rounded-lg transition-colors mr-2"
+                            className="items-center gap-1 bg-primary hover:bg-blue-600 text-white text-xs font-bold py-2 px-3 rounded-lg transition-colors mr-2"
                         >
                             <span className="material-symbols-outlined text-[16px]">add_circle</span>
                             Add My Time
